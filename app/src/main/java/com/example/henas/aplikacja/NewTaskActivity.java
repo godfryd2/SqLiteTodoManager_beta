@@ -20,6 +20,7 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.util.Calendar;
+import java.util.HashMap;
 
 public class NewTaskActivity extends AppCompatActivity {
     private Button btnSave;
@@ -30,6 +31,8 @@ public class NewTaskActivity extends AppCompatActivity {
     private TodoDbAdapter todoDbAdapter;
     private GoogleApiClient client;
     public static String description;
+
+    TodoDbAdapter controller = new TodoDbAdapter(this);
 
     public static String getDescription() {
         return description;
@@ -64,7 +67,7 @@ public class NewTaskActivity extends AppCompatActivity {
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.btnSave:
-                        saveNewTask();
+                        saveNewTask(v);
                         break;
                     case R.id.btnCancel:
                         cancelNewTask();
@@ -85,9 +88,8 @@ public class NewTaskActivity extends AppCompatActivity {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    public void saveNewTask() {
-        todoDbAdapter = new TodoDbAdapter(getApplicationContext());
-        todoDbAdapter.open();
+    public void saveNewTask(View view) {
+
         Calendar calendar = Calendar.getInstance();
 
         String taskDescription = etNewTask.getText().toString();
@@ -123,7 +125,13 @@ public class NewTaskActivity extends AppCompatActivity {
         if (taskDescription.equals("")) {
             etNewTask.setError("Opis zadania nie może być pusty!");
         } else {
-            todoDbAdapter.insertTodo(taskDescription, taskDate);
+
+            HashMap<String, String> queryValues = new HashMap<String, String>();
+            queryValues.put("description", taskDescription);
+            queryValues.put("date", taskDate);
+            queryValues.put("complete", "false");
+            controller.insertTodo(queryValues);
+
             etNewTask.setText("");
             hideKeyboard();
 
