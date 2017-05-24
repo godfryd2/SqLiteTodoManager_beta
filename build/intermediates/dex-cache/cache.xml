@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\Henas\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.8.0\c4ba5371a29ac9b2ad6129b1d39ea38750043eff\gson-2.8.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c4ba5371a29ac9b2ad6129b1d39ea38750043eff">
+        <dex dex="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.8.0_294461f8a49e32ed365599fb5002c48ebdbbbe8a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6f6d428eddfd040f0a753a244ff825f308fb4e5a">
+        <dex dex="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_3e9f7785fe53ba419d06c03515d3aa71730afd64\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="fef2b3e4b6b1b0e5fe7b69fa137a5fa55a3182ab">
+        <dex dex="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-8.4.0_c7ab1009e7e10c4de69fa6b441802d2d3160ead0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_78cfd6e637f674135558b728ccffd6225d1b3937\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.1_bb6ebd2faa455b7aef019f54ebfd14a3018c6304\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_3b44da9822958f0900856e81bd76a53f244fb2b2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
+        <dex dex="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-8.4.0_9f3a07e26ea0fc22e7573852b0bea291e1be6489\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Henas\.gradle\caches\modules-2\files-2.1\com.loopj.android\android-async-http\1.4.9\386a4339ffe52d5d63e80f9bed8d2b1d1a418249\android-async-http-1.4.9.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="386a4339ffe52d5d63e80f9bed8d2b1d1a418249">
+        <dex dex="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\transforms\dex\debug\folders\1000\10\android-async-http-1.4.9_44e75f963496c806cbadb70b1482e805f4decda3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-24.2.1_21bba48a3ea6733f0a8b2d3c22a1c3a976800159\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_caeeacc2a3372754f52ec09221af853f68a4c57f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Henas\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_a880f758ece29816ca80580700f2938616bfb5b0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_1568c299e56d6f9ec550f30ecddcc0960d6b668a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Henas\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.2_1b631e8b97f8e1cdb72499566cf01461aab2867d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_3bdba3e4c4bc13c76e3e53a66af6c02b96d7ca9a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_36eef4d51c46c9562ddda1028218fd1024dffabf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="73ad48e4267d19110ec238e95d4dbd24cdf63d93">
+        <dex dex="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_8c983edce6442beb05df27d1862be64ffa75e828\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_7ed1fc015f5755494663eeb6cdbe22eadaf97176\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_8ae33f9cd82648368edd4ef7a4a76805f2349d94\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_5ae1f3eb97786f93ae8f3dfdcc3f8c57c6de1b11\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_707c613646bcaf5ad51b83898ea1a612fb91b3c5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_c68cf3f8f9e68f388b87e7273a1377238fc4086c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Henas\.gradle\caches\modules-2\files-2.1\cz.msebera.android\httpclient\4.3.6\526a9f794eab830eae4f23a62c572878b3f491ab\httpclient-4.3.6.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="526a9f794eab830eae4f23a62c572878b3f491ab">
+        <dex dex="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\transforms\dex\debug\folders\1000\10\httpclient-4.3.6_7fc4f0ea04af22303b1178b83cbe0fca72504d14\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="65d086ee9daaf87b5af62ad24471edafa433354c">
+        <dex dex="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appindexing-8.4.0_af888956ef3a83561b2fea569fc48105dd88fa57\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_f36c03799655f22a4f263d610f55a0afcdf89535\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\exploded-aar\com.android.support.constraint\constraint-layout\1.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="D:\Dokumenty\Android\SqLiteTodoManager\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support.constraint-constraint-layout-1.0.2_f38a4f73d7ec747e39cff9f16f3bd2e6f0e48e67\classes.dex" />
+    </item>
+
+</items>
