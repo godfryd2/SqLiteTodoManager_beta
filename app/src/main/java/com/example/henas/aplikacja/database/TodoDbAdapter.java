@@ -64,6 +64,7 @@ public class TodoDbAdapter extends SQLiteOpenHelper{
 
     public TodoDbAdapter(Context applicationcontext) {
         super(applicationcontext, DB_NAME, null, DB_VERSION);
+        context = applicationcontext;
     }
 
     @Override
@@ -92,8 +93,8 @@ public class TodoDbAdapter extends SQLiteOpenHelper{
         values.put("_id", queryValues.get("_id"));
         values.put("description", queryValues.get("description"));
         values.put("date", queryValues.get("date"));
-        values.put("completed", queryValues.get("completed"));
-        values.put("udpateStatus", "no");
+        values.put("completed", "");
+        values.put("updateStatus", "no");
         database.insert(DB_TODO_TABLE, null, values);
         database.close();
     }
@@ -147,7 +148,7 @@ public class TodoDbAdapter extends SQLiteOpenHelper{
                 map.put("description", cursor.getString(1));
                 map.put("date", cursor.getString(2));
                 map.put("completed", cursor.getString(3));
-                map.put("udpateStatus", cursor.getString(4));
+                map.put("updateStatus", cursor.getString(4));
                 wordList.add(map);
             } while (cursor.moveToNext());
         }
@@ -163,7 +164,7 @@ public class TodoDbAdapter extends SQLiteOpenHelper{
     public String composeJSONfromSQLite() {
         ArrayList<HashMap<String, String>> wordList;
         wordList = new ArrayList<HashMap<String, String>>();
-        String selectQuery = "SELECT  * FROM todo where udpateStatus = '" + "no" + "'";
+        String selectQuery = "SELECT  * FROM todo where updateStatus = '" + "no" + "'";
         SQLiteDatabase database = this.getWritableDatabase();
         Cursor cursor = database.rawQuery(selectQuery, null);
         if (cursor.moveToFirst()) {
@@ -173,7 +174,7 @@ public class TodoDbAdapter extends SQLiteOpenHelper{
                 map.put("description", cursor.getString(1));
                 map.put("date", cursor.getString(2));
                 map.put("completed", cursor.getString(3));
-                map.put("udpateStatus", cursor.getString(4));
+                map.put("updateStatus", cursor.getString(4));
                 wordList.add(map);
             } while (cursor.moveToNext());
         }
@@ -205,7 +206,7 @@ public class TodoDbAdapter extends SQLiteOpenHelper{
      */
     public int dbSyncCount() {
         int count = 0;
-        String selectQuery = "SELECT * FROM todo where udpateStatus = '" + "no" + "'";
+        String selectQuery = "SELECT * FROM todo where updateStatus = '" + "no" + "'";
         SQLiteDatabase database = this.getWritableDatabase();
         Cursor cursor = database.rawQuery(selectQuery, null);
         count = cursor.getCount();
@@ -221,7 +222,7 @@ public class TodoDbAdapter extends SQLiteOpenHelper{
      */
     public void updateSyncStatus(String id, String status) {
         SQLiteDatabase database = this.getWritableDatabase();
-        String updateQuery = "Update todo set udpateStatus = '" + status + "' where _Id=" + "'" + id + "'";
+        String updateQuery = "Update todo set updateStatus = '" + status + "' where _Id=" + "'" + id + "'";
         Log.d("query", updateQuery);
         database.execSQL(updateQuery);
         database.close();
@@ -235,7 +236,6 @@ public class TodoDbAdapter extends SQLiteOpenHelper{
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-            db = getWritableDatabase();
             db.execSQL(DB_CREATE_TODO_TABLE);
 
             Log.d(DEBUG_TAG, "Database creating...");

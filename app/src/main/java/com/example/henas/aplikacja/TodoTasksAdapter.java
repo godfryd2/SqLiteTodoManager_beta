@@ -4,9 +4,6 @@ package com.example.henas.aplikacja;
  * Created by Henas on 07.11.2016.
  */
 
-import java.util.List;
-
-import com.example.henas.aplikacja.model.TodoTask;
 import android.app.Activity;
 import android.graphics.Paint;
 import android.view.LayoutInflater;
@@ -15,9 +12,14 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.example.henas.aplikacja.model.TodoTask;
+
+import java.util.List;
+
 public class TodoTasksAdapter extends ArrayAdapter<TodoTask> {
     private Activity context;
     private List<TodoTask> tasks;
+
     public TodoTasksAdapter(Activity context, List<TodoTask> tasks) {
         super(context, R.layout.todo_list_item, tasks);
         this.context = context;

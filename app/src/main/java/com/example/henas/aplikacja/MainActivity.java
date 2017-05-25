@@ -80,7 +80,7 @@ public class MainActivity extends Activity {
         if(todoList.size()!=0){
             //Set the User Array list in ListView
             ListAdapter adapter = new SimpleAdapter(MainActivity.this, todoList, R.layout.todo_list_item, new String[] { "_id", "description", "date"}, new int[] {R.id.tvTodoId, R.id.tvTodoDescription, R.id.tvTodoDate});
-            ListView myList=(ListView)findViewById(android.R.id.list);
+            ListView myList=(ListView)findViewById(R.id.lvTodos);
             myList.setAdapter(adapter);
             //Display Sync status of SQLite DB
             Toast.makeText(getApplicationContext(), controller.getSyncStatus(), Toast.LENGTH_LONG).show();
