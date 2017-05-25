@@ -5,7 +5,9 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -46,6 +48,7 @@ public class MainActivity extends Activity {
     ProgressDialog prgDialog;
 
     private Button btnAddNew;
+    private Button btnSynch;
     private Button btnClearCompleted;
 
     private ListView lvTodos;
@@ -105,7 +108,7 @@ public class MainActivity extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         //When Sync action button is clicked
-        if (id == R.id.refresh) {
+        if (id == R.id.btnSynch) {
             //Sync SQLite DB data to remote MySQL DB
             syncSQLiteMySQLDB();
             return true;
@@ -119,6 +122,7 @@ public class MainActivity extends Activity {
 
     private void initUiElements() {
         btnAddNew = (Button) findViewById(R.id.btnAddNew);
+        btnSynch = (Button) findViewById(R.id.btnSynch);
         btnClearCompleted = (Button) findViewById(R.id.btnClearCompleted);
         lvTodos = (ListView) findViewById(R.id.lvTodos);
         llControlButtons = (LinearLayout) findViewById(R.id.llControlButtons);
@@ -207,6 +211,9 @@ public class MainActivity extends Activity {
                     case R.id.btnClearCompleted:
                         clearCompletedTasks();
                         break;
+                    case R.id.btnSynch:
+                        syncSQLiteMySQLDB();
+                        break;
                     default:
                         break;
                 }
@@ -217,6 +224,12 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, NewTaskActivity.class));
+            }
+        });
+        btnSynch.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                syncSQLiteMySQLDB();
             }
         });
         btnClearCompleted.setOnClickListener(onClickListener);
@@ -283,18 +296,19 @@ public class MainActivity extends Activity {
                 params.put("usersJSON", controller.composeJSONfromSQLite());
                 client.post("http://godfryd2.unixstorm.org/sqlitemysqlsync/insertuser.php", params ,new AsyncHttpResponseHandler() {
 
+                    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                         System.out.println(responseBody);
                         prgDialog.hide();
                         try {
-                            JSONArray arr = new JSONArray(responseBody);
+                            JSONArray arr = new JSONArray(new String(responseBody));
                             System.out.println(arr.length());
                             for(int i=0; i<arr.length();i++){
-                                JSONObject obj = (JSONObject)arr.get(i);
-                                System.out.println(obj.get("id"));
-                                System.out.println(obj.get("status"));
-                                controller.updateSyncStatus(obj.get("id").toString(),obj.get("status").toString());
+                                JSONObject obj = arr.getJSONObject(i);
+                                System.out.println(obj.get("_id"));
+                                System.out.println(obj.get("updateStatus"));
+                                controller.updateSyncStatus(obj.get("_id").toString(),obj.get("updateStatus").toString());
                             }
                             Toast.makeText(getApplicationContext(), "DB Sync completed!", Toast.LENGTH_LONG).show();
                         } catch (JSONException e) {

@@ -7,6 +7,11 @@
     android:visibility="visible">
 
 
+    <Button
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:id="@+id/btnSynch" />
 
     <ListView
         android:id="@+id/lvTodos"
