@@ -18,7 +18,7 @@ import com.google.gson.GsonBuilder;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class TodoDbAdapter extends SQLiteOpenHelper{
+public class TodoDbAdapter extends SQLiteOpenHelper {
 
     private static final String DEBUG_TAG = "SqLiteTodoManager";
 
@@ -62,10 +62,52 @@ public class TodoDbAdapter extends SQLiteOpenHelper{
     private Context context;
     private DatabaseHelper dbHelper;
 
+    private static class DatabaseHelper extends SQLiteOpenHelper {
+        public DatabaseHelper(Context context, String name,
+                              SQLiteDatabase.CursorFactory factory, int version) {
+            super(context, name, factory, version);
+        }
+
+        @Override
+        public void onCreate(SQLiteDatabase db) {
+            db.execSQL(DB_CREATE_TODO_TABLE);
+
+            Log.d(DEBUG_TAG, "Database creating...");
+            Log.d(DEBUG_TAG, "Table " + DB_TODO_TABLE + " ver." + DB_VERSION + " created");
+        }
+
+        @Override
+        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+            db.execSQL(DROP_TODO_TABLE);
+
+            Log.d(DEBUG_TAG, "Database updating...");
+            Log.d(DEBUG_TAG, "Table " + DB_TODO_TABLE + " updated from ver." + oldVersion + " to ver." + newVersion);
+            Log.d(DEBUG_TAG, "All data is lost.");
+
+            onCreate(db);
+        }
+    }
+
     public TodoDbAdapter(Context applicationcontext) {
         super(applicationcontext, DB_NAME, null, DB_VERSION);
         context = applicationcontext;
     }
+
+    public TodoDbAdapter open(){
+        dbHelper = new DatabaseHelper(context, DB_NAME, null, DB_VERSION);
+        try {
+            db = dbHelper.getWritableDatabase();
+        } catch (android.database.SQLException e) {
+            db = dbHelper.getReadableDatabase();
+        }
+        return this;
+    }
+
+    public void close() {
+        dbHelper.close();
+    }
+
+
 
     @Override
     public void onCreate(SQLiteDatabase database) {
@@ -85,18 +127,15 @@ public class TodoDbAdapter extends SQLiteOpenHelper{
     /**
      * Inserts Todo into SQLite DB
      *
-     * @param queryValues
+     * @param
      */
-    public void insertTodo(HashMap<String, String> queryValues) {
-        SQLiteDatabase database = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("_id", queryValues.get("_id"));
-        values.put("description", queryValues.get("description"));
-        values.put("date", queryValues.get("date"));
-        values.put("completed", "");
-        values.put("updateStatus", "no");
-        database.insert(DB_TODO_TABLE, null, values);
-        database.close();
+    public long insertTodo(String description, String date) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues newTodoValues = new ContentValues();
+        newTodoValues.put(KEY_DESCRIPTION, description);
+        newTodoValues.put(KEY_DATE, date);
+        newTodoValues.put(KEY_STATUS, "no");
+        return db.insert(DB_TODO_TABLE, null, newTodoValues);
     }
 
 
@@ -130,6 +169,21 @@ public class TodoDbAdapter extends SQLiteOpenHelper{
         return db.delete(DB_TODO_TABLE, where, null) > 0;
     }
 
+    public TodoTask getTodo(long id) {
+        String[] columns = {KEY_ID, KEY_DESCRIPTION, KEY_DATE, KEY_COMPLETED, KEY_STATUS};
+        String where = KEY_ID + "=" + id;
+        Cursor cursor = db.query(DB_TODO_TABLE, columns, where, null, null, null, null);
+        TodoTask task = null;
+        if(cursor != null && cursor.moveToFirst()) {
+            String description = cursor.getString(DESCRIPTION_COLUMN);
+            String date = cursor.getString(DATE_COLUMN);
+            boolean completed = cursor.getInt(COMPLETED_COLUMN) > 0 ? true : false;
+            String status = cursor.getString(STATUS_COLUMN);
+            task = new TodoTask(id, description, date, completed, status);
+        }
+        return task;
+    }
+
     /**
      * Get list of Todo from SQLite DB as Array List
      *
@@ -148,11 +202,12 @@ public class TodoDbAdapter extends SQLiteOpenHelper{
                 map.put("description", cursor.getString(1));
                 map.put("date", cursor.getString(2));
                 map.put("completed", cursor.getString(3));
-                map.put("updateStatus", cursor.getString(4));
+                //map.put("updateStatus", cursor.getString(4));
                 wordList.add(map);
             } while (cursor.moveToNext());
         }
         database.close();
+        System.out.println("wordList: " + wordList);
         return wordList;
     }
 
@@ -174,7 +229,7 @@ public class TodoDbAdapter extends SQLiteOpenHelper{
                 map.put("description", cursor.getString(1));
                 map.put("date", cursor.getString(2));
                 map.put("completed", cursor.getString(3));
-                map.put("updateStatus", cursor.getString(4));
+                //map.put("updateStatus", cursor.getString(4));
                 wordList.add(map);
             } while (cursor.moveToNext());
         }
@@ -226,45 +281,5 @@ public class TodoDbAdapter extends SQLiteOpenHelper{
         Log.d("query", updateQuery);
         database.execSQL(updateQuery);
         database.close();
-    }
-
-    private static class DatabaseHelper extends SQLiteOpenHelper {
-        public DatabaseHelper(Context context, String name,
-                              SQLiteDatabase.CursorFactory factory, int version) {
-            super(context, name, factory, version);
-        }
-
-        @Override
-        public void onCreate(SQLiteDatabase db) {
-            db.execSQL(DB_CREATE_TODO_TABLE);
-
-            Log.d(DEBUG_TAG, "Database creating...");
-            Log.d(DEBUG_TAG, "Table " + DB_TODO_TABLE + " ver." + DB_VERSION + " created");
-        }
-
-        @Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            db.execSQL(DROP_TODO_TABLE);
-
-            Log.d(DEBUG_TAG, "Database updating...");
-            Log.d(DEBUG_TAG, "Table " + DB_TODO_TABLE + " updated from ver." + oldVersion + " to ver." + newVersion);
-            Log.d(DEBUG_TAG, "All data is lost.");
-
-            onCreate(db);
-        }
-    }
-
-    public TodoDbAdapter open(){
-        dbHelper = new DatabaseHelper(context, DB_NAME, null, DB_VERSION);
-        try {
-            db = dbHelper.getWritableDatabase();
-        } catch (android.database.SQLException e) {
-            db = dbHelper.getReadableDatabase();
-        }
-        return this;
-    }
-
-    public void close() {
-        dbHelper.close();
     }
 }

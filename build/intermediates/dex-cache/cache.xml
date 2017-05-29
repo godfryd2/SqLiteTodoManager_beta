@@ -97,7 +97,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="c6ca795feefaf6cc4aeffd2d15f7cae593d128c8">
+        sha1="759f0c34f4f487259e2f3f6caa6a2e930ddede6c">
         <dex dex="D:\Dokumenty\Android\SqLiteTodoManager_beta\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_5a6a75592d8d617a9ea8118c819dc38f79d155a2\classes.dex" />
     </item>
     <item
@@ -358,7 +358,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="e62d6d5638a6e9144532c988137bb93c5b7c6e65">
+        sha1="084c9f0b1c47a6908d6e85ff8eed41f6b72519e2">
         <dex dex="D:\Dokumenty\Android\SqLiteTodoManager_beta\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_df81a8598494222395a23ffe9672b705d661168d\classes.dex" />
     </item>
     <item

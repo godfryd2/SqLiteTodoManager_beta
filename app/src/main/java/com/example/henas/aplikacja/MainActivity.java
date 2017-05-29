@@ -183,7 +183,7 @@ public class MainActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View v, int position,
                                     long id) {
                 TodoTask task = tasks.get(position);
-                if (task.isCompleted()) {
+                if(task.isCompleted()){
                     todoDbAdapter.updateTodo(task.getId(), task.getDescription(), task.getDate(), false, task.getStatus());
                 } else {
                     todoDbAdapter.updateTodo(task.getId(), task.getDescription(), task.getDate(), true, task.getStatus());
@@ -290,10 +290,13 @@ public class MainActivity extends Activity {
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
         ArrayList<HashMap<String, String>> userList =  controller.getAllUsers();
+        System.out.println("userlist: " + userList);
         if(userList.size()!=0){
             if(controller.dbSyncCount() != 0){
                 prgDialog.show();
-                params.put("usersJSON", controller.composeJSONfromSQLite());
+                params.put("todosJSON", controller.composeJSONfromSQLite());
+                System.out.println("cpmposeList: " + controller.composeJSONfromSQLite());
+
                 client.post("http://godfryd2.unixstorm.org/sqlitemysqlsync/insertuser.php", params ,new AsyncHttpResponseHandler() {
 
                     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -306,7 +309,9 @@ public class MainActivity extends Activity {
                             System.out.println(arr.length());
                             for(int i=0; i<arr.length();i++){
                                 JSONObject obj = arr.getJSONObject(i);
+                                System.out.println("_id: ");
                                 System.out.println(obj.get("_id"));
+                                System.out.println("updateStatus: ");
                                 System.out.println(obj.get("updateStatus"));
                                 controller.updateSyncStatus(obj.get("_id").toString(),obj.get("updateStatus").toString());
                             }

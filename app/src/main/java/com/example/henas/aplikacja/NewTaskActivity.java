@@ -20,7 +20,6 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.util.Calendar;
-import java.util.HashMap;
 
 public class NewTaskActivity extends AppCompatActivity {
     private Button btnSave;
@@ -90,6 +89,8 @@ public class NewTaskActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void saveNewTask(View view) {
 
+        todoDbAdapter = new TodoDbAdapter(getApplicationContext());
+        todoDbAdapter.open();
         Calendar calendar = Calendar.getInstance();
 
         String taskDescription = etNewTask.getText().toString();
@@ -126,11 +127,12 @@ public class NewTaskActivity extends AppCompatActivity {
             etNewTask.setError("Opis zadania nie może być pusty!");
         } else {
 
-            HashMap<String, String> queryValues = new HashMap<String, String>();
-            queryValues.put("description", taskDescription);
-            queryValues.put("date", taskDate);
-            queryValues.put("complete", "false");
-            controller.insertTodo(queryValues);
+            //HashMap<String, String> queryValues = new HashMap<String, String>();
+            //queryValues.put("description", taskDescription);
+            //queryValues.put("date", taskDate);
+            //queryValues.put("complete", "false");
+            //todoDbAdapter.insertTodo(queryValues);
+            todoDbAdapter.insertTodo(taskDescription, taskDate);
 
             etNewTask.setText("");
             hideKeyboard();
